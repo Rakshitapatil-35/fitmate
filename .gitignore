@@ -31,3 +31,20 @@ logs/
 .idea/
 .DS_Store
 Thumbs.db
+._*
+__MACOSX/
+
+# Large Datasets and Archives
+data/
+archive/
+open-data-registry-main/
+SnapFit-main/
+*.jsonl
+modcloth_final_data.json
+renttherunway_final_data.json
+NHANES*.csv
+kitanesque*.csv
+ansur.csv
+body_measurements*.csv
+FITMATE_Dataset_Links.pdf
+
