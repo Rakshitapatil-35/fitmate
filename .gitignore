@@ -31,3 +31,23 @@ logs/
 .idea/
 .DS_Store
 Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+
+# Archives & Unpacked Raw Data Folders
+archive/
+open-data-registry-main/
+SnapFit-main/
+data/
+
+# Raw large dataset files
+*.json
+!postman_collection.json
+!app/services/ease_config.json
+!models/*.json
+*.csv
+
+# Temporary transition files
+README_m4_m5.md
+requirements_m4_m5.txt
