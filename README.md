@@ -1,85 +1,169 @@
-# Size Recommendation Backend API
+# FITMATE Recommendation Platform & ML Engine
 
-A complete, production-grade **REST API Backend** built with **Python 3.11+**, **FastAPI**, **SQLAlchemy 2.0 (SQLite)**, **Alembic**, **Pydantic v2**, **PyJWT + bcrypt**, and **scikit-learn/joblib** for apparel size and fit recommendations, including dedicated **Browser Extension REST endpoints**.
-
----
-
-## Features Overview
-
-- **Authentication & Role-Based Access Control**: JWT access + refresh tokens, token blacklisting on logout/refresh rotation, `bcrypt` password hashing, sliding-window rate limiting on auth endpoints, and `user` vs `admin` authorization dependencies.
-- **Body Measurement Management**: Multiple measurement profiles per user, automatic conversion from inches (`in`) to centimetres (`cm`) and pounds (`lbs`) to kilograms (`kg`), physiological min/max validation, category-specific required fields, and fit preference storage (`slim`, `regular`, `relaxed`).
-- **4-Category Strategy Recommendation Engine**:
-  - `MensTopsStrategy` (`mens_tops`): Chest, shoulder, sleeve, torso
-  - `WomensTopsStrategy` (`womens_tops`): Bust, underbust (where relevant), shoulder, sleeve
-  - `MensBottomsStrategy` (`mens_bottoms`): Waist, hips, inseam, thigh, rise
-  - `WomensBottomsStrategy` (`womens_bottoms`): Waist, hips, inseam, thigh, rise
-  - Configurable ease allowance tables (`app/services/ease_config.json`), fabric stretch compensation, top-N ranked sizes, per-measurement fit notes, and graceful handling of missing measurements.
-- **Machine Learning Integration & Automatic Rule Fallback**: Loads a trained scikit-learn classifier via `joblib`, validates output schema/confidence/allowed sizes, automatically falls back to the rule-based strategy engine if the model is unavailable or low-confidence, and logs every prediction in `prediction_logs`.
-- **Fit Feedback & Analytics**: Captures post-purchase user fit feedback connected to recommendations, categorizes fit labels (`too_tight`, `good_fit`, `loose`), computes accuracy/acceptance metrics by brand, category, and model version, and exports clean labelled CSV training data for admins.
-- **Browser Extension REST Support**: Matches product pages by URL, domain, or external product ID, fetches the authenticated user's measurements, returns instant size recommendations, and handles unsupported websites gracefully (`{"supported": false, "message": "..."}` with HTTP 200).
+Production-grade apparel size and fit recommendation platform featuring a complete **FastAPI Backend REST API**, an integrated **3-Model Machine Learning Engine**, automated training and inference pipelines, and dedicated **Browser Extension endpoints**.
 
 ---
 
-## Quickstart & Run Instructions
+## 1. Machine Learning Architecture Overview
 
-### 1. Environment & Dependencies
+FITMATE deploys three specialized machine learning models:
 
+1. **Model 1: Clothing Size Classifier (`models/model_1_size.joblib`)**
+   - **Goal:** Predict standard ordinal clothing size (`XXS`, `XS`, `S`, `M`, `L`, `XL`, `XXL`, `XXXL`) based on user body measurements (height, weight, age, bust, waist, hips), garment category, and fit preference.
+   - **Algorithm:** Gradient Boosted Decision Trees (`XGBoost`).
+   - **Holdout Accuracy:** **44.35%** (vs **23.51%** majority baseline, **+20.84%** lift).
+   - **Within-1-Size Accuracy:** **83.97%** (vs **62.03%** majority baseline, **+21.94%** lift).
+
+2. **Model 2: Fit Recommendation Classifier (`models/model_2_fit.joblib`)**
+   - **Goal:** Predict whether a chosen garment size will feel **tight**, **fit**, or **loose** on the customer.
+   - **Algorithm:** Balanced Cost-Sensitive `RandomForest` with Platt scaling (`CalibratedClassifierCV`).
+   - **Data Split:** `GroupShuffleSplit` on `user_id` (zero user leakage between train and test).
+   - **Performance:** Actively detects tight and loose garments (55.1% recall on tight, 48.0% recall on loose) over a heavily skewed 72% fit baseline.
+
+3. **Model 3: Garment Measurement Regressor (`models/model_3_garment.joblib`)**
+   - **Goal:** Predict physical garment dimensions in centimeters (`bust_cm`, `waist_cm`, `length_cm`, `inseam_cm`) from brand, category, and size label.
+   - **Algorithm:** Multi-target regression via `RandomForest` & `XGBoost`.
+   - **Evaluation:** Outperforms category-mean baselines across all dimensions with calibrated prediction intervals. All outputs are strictly tagged as `"estimated": true`.
+
+---
+
+## 2. Repository Directory Structure
+
+```
+.
+├── alembic/                        # Database migration scripts
+├── api/
+│   └── main.py                     # Standalone ML FastAPI inference service
+├── app/                            # Backend application core
+│   ├── core/                       # Auth, security, logging, rate limiting
+│   ├── models/                     # SQLAlchemy ORM models
+│   ├── routers/                    # FastAPI route handlers
+│   ├── schemas/                    # Pydantic v2 schemas
+│   └── services/                   # Recommendation strategies & ML client
+├── models/
+│   ├── model_1_size.joblib         # Model 1 pipeline artifact
+│   ├── model_1_metadata.json       # Model 1 schema & evaluation metrics
+│   ├── model_2_fit.joblib          # Model 2 pipeline artifact
+│   ├── model_2_metadata.json       # Model 2 schema & evaluation metrics
+│   ├── model_3_garment.joblib      # Model 3 regression artifact
+│   └── model_3_metadata.json       # Model 3 schema & evaluation metrics
+├── reports/
+│   ├── data_audit.md               # Complete data audit log & cleaning stats
+│   ├── model_1_confusion_matrix.png # Model 1 normalized confusion matrix
+│   ├── model_2_confusion_matrix.png # Model 2 normalized confusion matrix
+│   ├── summary.md                  # Comprehensive senior ML engineering report
+│   └── FITMATE_Model_Evaluation_Report.pdf # PDF evaluation report
+├── src/
+│   ├── clean.py                    # Data cleaning & audit pipeline
+│   ├── predict.py                  # High-level inference engine
+│   ├── run_all.py                  # End-to-end master orchestrator
+│   ├── train_model_1.py            # Size classifier training & tuning
+│   ├── train_model_2.py            # Fit classifier training & calibration
+│   ├── train_model_3.py            # Garment regressor training
+│   └── utils.py                    # Unit conversion, I/O, and normalizers
+├── tests/
+│   └── test_fitmate.py             # 19 automated Pytest ML & API tests
+├── FITMATE_Model_Evaluation_Report.pdf # PDF report in root directory
+├── requirements.txt                # Unified dependencies
+└── seed.py                         # Sample database seed script
+```
+
+---
+
+## 3. Quick Start & Setup
+
+### 3.1 Install Dependencies
 ```bash
-python -m venv .venv
-# Windows PowerShell:
-.\.venv\Scripts\Activate.ps1
-# Linux / macOS:
-# source .venv/bin/activate
-
 pip install -r requirements.txt
-cp .env.example .env
 ```
 
-### 2. Database Migrations (Alembic)
-
+### 3.2 Single-Command ML Pipeline (Audit, Clean, Train All Models, Run Tests)
 ```bash
-alembic upgrade head
+python -m src.run_all
 ```
 
-### 3. Train Initial ML Artifact & Seed Sample Data
-
+### 3.3 Run Tests
 ```bash
-# Train the stub RandomForest size classifier artifact:
-python -m app.ml.train_stub
+# Run ML tests (19 passed)
+pytest tests/ -v
 
-# Seed admin account, demo user, 4 categories, brands, products, and verified size charts:
-python seed.py
+# Run backend API tests
+pytest app/tests/ -v
 ```
 
-**Seeded Credentials:**
-- **Admin**: `admin@sizerec.example.com` / `AdminPass123`
-- **Standard User**: `alex@sizerec.example.com` / `UserPass123`
+### 3.4 Launch FastAPI Services
+- **ML Inference Service:**
+  ```bash
+  uvicorn api.main:app --port 8000
+  ```
+- **Full Backend Application:**
+  ```bash
+  uvicorn app.main:app --port 8001
+  ```
 
-### 4. Start the FastAPI Server
+---
 
+## 4. API Endpoints & Example cURL Requests
+
+### 4.1 Health Check
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+curl -X GET "http://localhost:8000/health"
 ```
 
-- Interactive Swagger UI: `http://localhost:8000/docs`
-- ReDoc Documentation: `http://localhost:8000/redoc`
-- Health Check: `http://localhost:8000/api/v1/health`
-
-### 5. Run Automated Tests
-
+### 4.2 Predict Clothing Size (`POST /predict/size`)
 ```bash
-pytest -v
+curl -X POST "http://localhost:8000/predict/size" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "profile": {
+      "height": "5ft 7in",
+      "weight": "138 lbs",
+      "age": 28,
+      "bust": "34c",
+      "waist": 28,
+      "hip": 38,
+      "fit_preference": "fit"
+    },
+    "product": {
+      "category": "dress",
+      "brand": "Zara"
+    }
+  }'
+```
+
+### 4.3 Predict Fit Recommendation (`POST /predict/fit`)
+```bash
+curl -X POST "http://localhost:8000/predict/fit" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "profile": {
+      "height": 168.0,
+      "weight": 63.0,
+      "age": 30,
+      "bust": "34b"
+    },
+    "garment": {
+      "category": "top",
+      "size": "S"
+    }
+  }'
+```
+
+### 4.4 Estimate Garment Physical Dimensions (`POST /predict/garment`)
+```bash
+curl -X POST "http://localhost:8000/predict/garment" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "brand": "Levi'\''s",
+    "category": "bottoms",
+    "size": "M"
+  }'
 ```
 
 ---
 
-## Git & GitHub Setup Steps
+## 5. Evaluation PDF Report
 
-```bash
-git init
-git add .
-git commit -m "feat: complete FastAPI size recommendation backend with ML and extension APIs"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
-```
+A comprehensive 3-page evaluation report with visual confusion matrices is compiled at:
+- `FITMATE_Model_Evaluation_Report.pdf`
+- `reports/FITMATE_Model_Evaluation_Report.pdf`
