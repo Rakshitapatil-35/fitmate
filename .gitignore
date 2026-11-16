@@ -101,3 +101,21 @@ ansur.csv
 body_measurements*.csv
 FITMATE_Dataset_Links.pdf
 
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Legacy / Scratch duplicates
+FITMATE/
+frontend/scratch/
+Microsoft/
+**/Microsoft/
+

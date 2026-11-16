@@ -1,0 +1,929 @@
+/* FITMATE Men's 3D Fashion World — The Gentleman's Sartorial Atelier */
+.mens-world-page {
+  min-height: 100vh;
+  color: #ede5da;
+  background: #14100d;
+  display: flex;
+  flex-direction: column;
+}
+
+.mens-header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(6%, calc((100% - 1320px) / 2));
+  border-bottom: 1px solid rgba(205, 168, 99, 0.2);
+  background: #1a1511;
+}
+
+.mens-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mens-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #cda863;
+  font-weight: 700;
+  font-family: var(--fm-font-serif, Georgia, serif);
+}
+
+.mens-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mens-nav > a:not(.fm-button) {
+  color: #a89a8c;
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mens-nav > a:not(.fm-button):hover {
+  color: #f5eedf;
+}
+
+.mens-nav-accent {
+  color: #cda863 !important;
+  font-weight: 600;
+}
+
+.mens-main {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 30px 6% 80px;
+  width: 100%;
+}
+
+.mens-top-marquee {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(205, 168, 99, 0.2);
+}
+
+.mens-top-marquee .marquee-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #cda863;
+  font-weight: 700;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  margin-bottom: 8px;
+}
+
+.mens-top-marquee h1 {
+  margin: 10px 0 8px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #f7f1e6;
+}
+
+.mens-top-marquee p {
+  max-width: 620px;
+  color: #a89a8c;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.mens-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #241b14;
+  border: 1px solid rgba(205, 168, 99, 0.4);
+  color: #f0e6d6;
+  padding: 10px 18px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.mens-switch-btn:hover {
+  background: #32251a;
+  border-color: #cda863;
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* 3-Column Stage Grid */
+.mens-stage-grid {
+  display: grid;
+  grid-template-columns: 330px 1fr 370px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Left Column: Garments Panel */
+.mens-garments-panel {
+  background: #1b1612;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  padding: 20px 18px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.garments-panel-header h2 {
+  margin: 4px 0 0;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 20px;
+  color: #f7f1e6;
+}
+
+.category-pill-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.category-pill {
+  border: 1px solid rgba(205, 168, 99, 0.25);
+  background: transparent;
+  color: #a89a8c;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 5px 9px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.category-pill:hover,
+.category-pill.is-active {
+  background: #cda863;
+  border-color: #cda863;
+  color: #14100d;
+  font-weight: 600;
+}
+
+.occasions-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.occasion-pill {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #8c7e72;
+  font-size: 9px;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.occasion-pill:hover,
+.occasion-pill.is-active {
+  border-color: #cda863;
+  color: #f0e6d6;
+}
+
+.garments-scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 640px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.garments-scroll-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.garments-scroll-list::-webkit-scrollbar-thumb {
+  background: rgba(205, 168, 99, 0.3);
+  border-radius: 2px;
+}
+
+.mens-garment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #201a15;
+  border: 1px solid rgba(205, 168, 99, 0.15);
+  border-radius: 3px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: inherit;
+}
+
+.mens-garment-card:hover {
+  border-color: rgba(205, 168, 99, 0.5);
+  background: #26201a;
+}
+
+.mens-garment-card.is-selected {
+  border-color: #cda863;
+  background: #2a221b;
+  box-shadow: 0 0 12px rgba(205, 168, 99, 0.15);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-index {
+  font-family: monospace;
+  font-size: 9px;
+  color: #8c7e72;
+}
+
+.card-audience-badge {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #cda863;
+}
+
+.mens-garment-card h3 {
+  margin: 2px 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #f7f1e6;
+  line-height: 1.35;
+}
+
+.mens-garment-card p {
+  margin: 0;
+  font-size: 10px;
+  color: #9c8e80;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 9px;
+}
+
+.card-occasion {
+  color: #8c7e72;
+}
+
+.card-inspect-cta {
+  color: #cda863;
+  font-weight: 600;
+}
+
+/* Center Column: 3D Viewport */
+.mens-canvas-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mens-canvas-frame {
+  position: relative;
+  height: 640px;
+  background: #14100d;
+  border: 1px solid rgba(205, 168, 99, 0.25);
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+
+.mens-3d-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mens-scene-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #14100d;
+  color: #cda863;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+}
+
+.mens-scene-loader small {
+  color: #8c7e72;
+  text-transform: none;
+  font-size: 10px;
+}
+
+.mens-viewport-watermark {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.watermark-tag {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #cda863;
+  font-weight: 700;
+}
+
+.watermark-title {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.viewport-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #1a1511;
+  border-left: 1px solid rgba(205, 168, 99, 0.25);
+  border-right: 1px solid rgba(205, 168, 99, 0.25);
+  font-size: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: #8c7e72;
+  font-weight: 700;
+}
+
+.view-btn,
+.zoom-btn,
+.avatar-btn,
+.turntable-spin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(205, 168, 99, 0.25);
+  background: transparent;
+  color: #ede5da;
+  font-size: 10px;
+  padding: 5px 9px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover,
+.zoom-btn:hover,
+.avatar-btn:hover,
+.turntable-spin-btn:hover {
+  border-color: #cda863;
+  background: rgba(205, 168, 99, 0.1);
+}
+
+.view-btn.is-active,
+.zoom-btn.is-active,
+.avatar-btn.is-active,
+.turntable-spin-btn.is-active {
+  background: #cda863;
+  border-color: #cda863;
+  color: #14100d;
+  font-weight: 600;
+}
+
+.turntable-slider-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #18130f;
+  border: 1px solid rgba(205, 168, 99, 0.25);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  font-size: 10px;
+}
+
+.slider-label {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #8c7e72;
+}
+
+.rotation-slider {
+  flex: 1;
+  accent-color: #cda863;
+  cursor: pointer;
+}
+
+.slider-deg-display {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: #cda863;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Right Column: Specs Panel */
+.mens-specs-panel {
+  background: #1b1612;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  padding: 20px 18px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.spec-header .spec-eyebrow {
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  color: #cda863;
+  font-weight: 700;
+}
+
+.spec-header h3 {
+  margin: 4px 0 2px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 18px;
+  color: #f7f1e6;
+  line-height: 1.3;
+}
+
+.spec-category {
+  margin: 0;
+  font-size: 10px;
+  color: #8c7e72;
+}
+
+.spec-description {
+  font-size: 11px;
+  color: #b0a294;
+  line-height: 1.7;
+}
+
+/* Male Body Proportions Section */
+.spec-proportions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proportions-chips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.proportion-chip {
+  padding: 7px 9px;
+  background: #221a15;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  color: #ede5da;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.proportion-chip:hover {
+  border-color: rgba(205, 168, 99, 0.5);
+  background: #281f19;
+}
+
+.proportion-chip.is-selected {
+  border-color: #cda863;
+  background: #34281e;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(205, 168, 99, 0.2);
+}
+
+.active-proportion-note {
+  font-size: 9px;
+  color: #8c7e72;
+  line-height: 1.5;
+}
+
+.active-proportion-note strong {
+  color: #cda863;
+}
+
+/* 3D Inspection Points */
+.spec-inspection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #cda863;
+  font-weight: 700;
+}
+
+.inspection-chips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inspection-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  background: #201a15;
+  color: #ede5da;
+  padding: 6px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.inspection-chip:hover,
+.inspection-chip.is-active {
+  border-color: #cda863;
+  background: #2a221b;
+}
+
+.chip-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cda863;
+  flex-shrink: 0;
+}
+
+.active-inspection-callout {
+  padding: 8px 10px;
+  background: #221b16;
+  border-left: 2px solid #cda863;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #b0a294;
+}
+
+/* Color Dyes */
+.spec-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.color-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.color-dot:hover {
+  transform: scale(1.15);
+}
+
+.color-dot.is-selected {
+  border-color: #cda863;
+  transform: scale(1.15);
+}
+
+.dot-active-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.active-color-name {
+  font-size: 9px;
+  color: #8c7e72;
+}
+
+.active-color-name strong {
+  color: #f7f1e6;
+}
+
+/* Material Study */
+.spec-material-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fabric-select {
+  background: #221a15;
+  border: 1px solid rgba(205, 168, 99, 0.3);
+  color: #f7f1e6;
+  padding: 7px 10px;
+  font-size: 10px;
+  border-radius: 2px;
+}
+
+.material-note {
+  margin: 0;
+  font-size: 9px;
+  color: #8c7e72;
+  line-height: 1.5;
+}
+
+/* Sizes */
+.spec-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.size-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.size-chip {
+  padding: 5px 8px;
+  background: #221a15;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  color: #ede5da;
+  font-size: 9px;
+  border-radius: 2px;
+}
+
+/* Fit Box */
+.spec-fit-box {
+  background: #201a15;
+  border: 1px solid rgba(205, 168, 99, 0.25);
+  padding: 12px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fit-box-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #cda863;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.fit-rec-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px;
+  background: #281f19;
+  border: 1px solid rgba(205, 168, 99, 0.3);
+  border-radius: 2px;
+}
+
+.fit-rec-label {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #8c7e72;
+}
+
+.fit-rec-size {
+  font-size: 14px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  color: #f7f1e6;
+}
+
+.fit-guidance-text {
+  font-size: 9px;
+  color: #8c7e72;
+  line-height: 1.5;
+}
+
+/* Action Buttons */
+.spec-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-find-size {
+  width: 100%;
+}
+
+.btn-save-wardrobe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid rgba(205, 168, 99, 0.3);
+  background: #221a15;
+  color: #ede5da;
+  font-size: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.btn-save-wardrobe:hover {
+  background: #2a201a;
+  border-color: #cda863;
+}
+
+.btn-save-wardrobe.is-saved {
+  border-color: #cda863;
+  color: #cda863;
+}
+
+/* Asset Ledger */
+.spec-asset-status {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 9px;
+  color: #8c7e72;
+}
+
+.asset-ledger-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+
+.status-light {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cda863;
+  box-shadow: 0 0 6px rgba(205, 168, 99, 0.6);
+  flex-shrink: 0;
+}
+
+.asset-ledger-drawer {
+  margin-top: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid rgba(205, 168, 99, 0.2);
+  background: #18130f;
+}
+
+.asset-ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9px;
+}
+
+.asset-ledger-table th,
+.asset-ledger-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(205, 168, 99, 0.12);
+  text-align: left;
+}
+
+.asset-ledger-table th {
+  background: #201a15;
+  font-size: 8px;
+  color: #cda863;
+  text-transform: uppercase;
+}
+
+.ledger-status-tag {
+  color: #5d8a55;
+  font-weight: 600;
+  display: block;
+}
+
+.ledger-pending-note {
+  color: #a89a8c;
+  font-family: monospace;
+  font-size: 8px;
+}
+
+.spec-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #4a6741;
+  background: #1d261b;
+  border: 1px solid #364e32;
+  padding: 8px 12px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* Footer */
+.mens-footer {
+  margin-top: 30px;
+  padding: 24px max(6%, calc((100% - 1320px) / 2));
+  border-top: 1px solid rgba(205, 168, 99, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #8c7e72;
+}
+
+.footer-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links-row a {
+  color: #8c7e72;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.footer-links-row a:hover {
+  color: #cda863;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .mens-stage-grid {
+    grid-template-columns: 280px 1fr;
+  }
+  .mens-specs-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .mens-stage-grid {
+    grid-template-columns: 1fr;
+  }
+  .mens-canvas-frame {
+    height: 480px;
+  }
+  .mens-top-marquee {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mens-nav {
+    display: none;
+  }
+}

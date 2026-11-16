@@ -1,0 +1,316 @@
+/* FITMATE 3D Fashion Runway Styles */
+
+.fashion-runway-universe {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0d0b09;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.runway-canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.runway-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(13, 11, 9, 0.75) 100%),
+    linear-gradient(to top, rgba(13, 11, 9, 0.9) 0%, transparent 25%);
+}
+
+/* Floating Runway Header */
+.runway-floating-header {
+  position: absolute;
+  top: 24px;
+  left: 100px;
+  right: 32px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: rgba(18, 15, 12, 0.82);
+  border: 1px solid rgba(223, 193, 123, 0.28);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.runway-header-meta h1 {
+  margin: 2px 0 0;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff9f0;
+  letter-spacing: 0.04em;
+}
+
+.runway-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #dfc17b;
+}
+
+.runway-camera-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.camera-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #c4b59d;
+  margin-right: 4px;
+}
+
+.btn-camera-angle {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(223, 193, 123, 0.2);
+  color: #e5d7c3;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-camera-angle:hover {
+  background: rgba(223, 193, 123, 0.15);
+  border-color: #dfc17b;
+  color: #fff;
+}
+
+.btn-camera-angle.is-active {
+  background: #dfc17b;
+  border-color: #dfc17b;
+  color: #120f0c;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(223, 193, 123, 0.4);
+}
+
+/* Floating Active Garment Card */
+.runway-couture-card {
+  position: absolute;
+  top: 110px;
+  right: 32px;
+  width: min(390px, calc(100vw - 48px));
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  z-index: 20;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(18, 15, 12, 0.88);
+  border: 1px solid rgba(223, 193, 123, 0.32);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 28px rgba(223, 193, 123, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-collection-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #dfc17b;
+  text-transform: uppercase;
+}
+
+.runway-couture-card h2 {
+  margin: 0;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 20px;
+  line-height: 1.3;
+  color: #fffaf2;
+}
+
+.card-atelier-name {
+  margin: 0;
+  font-size: 11px;
+  color: #c7b8a1;
+  font-style: italic;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ded3c1;
+}
+
+.card-specs-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(223, 193, 123, 0.16);
+}
+
+.spec-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a89a85;
+  margin-bottom: 3px;
+}
+
+.spec-value {
+  font-size: 12px;
+  color: #fff9f0;
+}
+
+.card-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-try-runway {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #dfc17b 0%, #b89347 100%);
+  color: #120f0c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(223, 193, 123, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-try-runway:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 193, 123, 0.5);
+}
+
+.btn-size-runway {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(223, 193, 123, 0.28);
+  color: #eedcc0;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-size-runway:hover {
+  background: rgba(223, 193, 123, 0.14);
+  color: #fff;
+}
+
+/* Garment Selector Strip */
+.runway-models-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.selector-title {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #a49682;
+}
+
+.selector-pills-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.runway-model-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(223, 193, 123, 0.15);
+  color: #d8cab5;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.runway-model-pill:hover {
+  background: rgba(223, 193, 123, 0.1);
+  color: #fff;
+}
+
+.runway-model-pill.is-active {
+  background: rgba(223, 193, 123, 0.22);
+  border-color: #dfc17b;
+  color: #fff;
+  font-weight: 600;
+}
+
+.pill-index {
+  font-size: 9px;
+  font-weight: 700;
+  color: #dfc17b;
+}
+
+.runway-footer-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #8c8070;
+  border-top: 1px solid rgba(223, 193, 123, 0.12);
+  padding-top: 8px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .runway-floating-header {
+    left: 20px;
+    right: 20px;
+    top: 70px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .runway-couture-card {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    width: auto;
+    max-height: 52vh;
+  }
+}

@@ -1,0 +1,1144 @@
+/* FITMATE 3D DIWALI FASHION WORLD - FESTIVE PALACE STYLES */
+
+.diwali-world-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #120c08;
+  color: #ede2d3;
+  font-family: var(--fm-font-sans, "Manrope", sans-serif);
+  overflow-x: hidden;
+}
+
+/* Festive Header */
+.diwali-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 2.2rem;
+  background: rgba(18, 12, 8, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.diwali-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.diwali-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0.75rem;
+  background: rgba(217, 119, 6, 0.15);
+  border: 1px solid rgba(229, 169, 60, 0.4);
+  border-radius: 999px;
+  color: #f5b800;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.diwali-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.diwali-nav a {
+  color: #d1c2ab;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.diwali-nav a:hover {
+  color: #ffd875;
+}
+
+/* Diwali Main */
+.diwali-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Marquee Banner */
+.diwali-top-marquee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2.2rem;
+  background: linear-gradient(90deg, #1d1109 0%, #2b160e 50%, #1a0f08 100%);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.2);
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.marquee-left {
+  max-width: 680px;
+}
+
+.marquee-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #f5b800;
+  text-transform: uppercase;
+}
+
+.marquee-left h1 {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.65rem;
+  color: #fff6e8;
+  margin: 0.25rem 0 0.45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.marquee-left p {
+  font-size: 0.82rem;
+  color: #bfaea0;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.marquee-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.diwali-runway-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  background: linear-gradient(135deg, #a73922 0%, #d97706 100%);
+  border: 1px solid rgba(255, 230, 160, 0.5);
+  border-radius: 999px;
+  color: #fff9ee;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+}
+
+.diwali-runway-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(217, 119, 6, 0.55);
+}
+
+.diwali-runway-btn.is-active {
+  background: linear-gradient(135deg, #d97706 0%, #a73922 100%);
+  border-color: #ffe899;
+  box-shadow: 0 0 25px rgba(245, 184, 0, 0.5);
+}
+
+.diwali-back-showroom-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: rgba(36, 24, 16, 0.8);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  border-radius: 999px;
+  color: #d1c2ab;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.diwali-back-showroom-btn:hover {
+  background: rgba(52, 34, 22, 0.9);
+  color: #fff6e8;
+  border-color: #e5a93c;
+}
+
+/* 3-Column Grid Stage */
+.diwali-stage-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 310px 1fr 370px;
+  height: calc(100vh - 150px);
+  min-height: 660px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left Column: Garments Selector */
+.diwali-garments-panel {
+  background: #150e09;
+  border-right: 1px solid rgba(217, 119, 6, 0.18);
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 1.2rem;
+}
+
+.garments-panel-header h2 {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.55rem;
+  color: #fff5e6;
+  margin: 0.3rem 0 0.6rem;
+  font-weight: 600;
+}
+
+.audience-pill-filter {
+  display: flex;
+  background: #20140c;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: 8px;
+  padding: 0.2rem;
+  gap: 0.2rem;
+}
+
+.audience-pill-filter button {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  background: none;
+  border: none;
+  color: #b5a48e;
+  font-size: 0.76rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audience-pill-filter button.is-active {
+  background: rgba(217, 119, 6, 0.25);
+  color: #fff5e6;
+  font-weight: 600;
+}
+
+.garments-scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.diwali-garment-card {
+  background: #1b120c;
+  border: 1px solid rgba(217, 119, 6, 0.16);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.diwali-garment-card:hover {
+  background: #251810;
+  border-color: rgba(229, 169, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+.diwali-garment-card.is-selected {
+  background: linear-gradient(135deg, rgba(46, 26, 16, 0.95) 0%, rgba(85, 28, 24, 0.75) 100%);
+  border-color: #e5a93c;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), inset 0 0 14px rgba(229, 169, 60, 0.16);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-index {
+  font-size: 0.68rem;
+  font-family: monospace;
+  color: #9c8972;
+}
+
+.card-audience-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  background: rgba(217, 119, 6, 0.16);
+  border: 1px solid rgba(229, 169, 60, 0.3);
+  border-radius: 4px;
+  color: #ffd875;
+}
+
+.diwali-garment-card h3 {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.05rem;
+  color: #fff6e8;
+  margin: 0;
+  font-weight: 600;
+}
+
+.diwali-garment-card p {
+  font-size: 0.78rem;
+  color: #b8a692;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed rgba(217, 119, 6, 0.16);
+}
+
+.card-craft {
+  font-size: 0.68rem;
+  color: #9c8a74;
+}
+
+.card-inspect-cta {
+  font-size: 0.68rem;
+  color: #f5b800;
+  font-weight: 600;
+}
+
+/* Center Canvas Column */
+.diwali-canvas-column {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #0d0805;
+  overflow: hidden;
+}
+
+.diwali-canvas-frame {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.diwali-3d-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.diwali-scene-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: #140e09;
+  color: #f5b800;
+  z-index: 10;
+}
+
+.diwali-scene-loader span {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.diwali-scene-loader small {
+  font-size: 0.82rem;
+  color: #b5a48e;
+}
+
+.diwali-viewport-watermark {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.8rem;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.watermark-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(245, 184, 0, 0.75);
+  text-transform: uppercase;
+}
+
+.watermark-title {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.5rem;
+  color: rgba(255, 248, 237, 0.95);
+  font-weight: 600;
+}
+
+.diwali-runway-indicator {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  z-index: 10;
+  background: rgba(28, 16, 10, 0.92);
+  border: 1px solid rgba(229, 169, 60, 0.6);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.8rem 1.1rem;
+  border-radius: 8px;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.diwali-flame-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5b800;
+  box-shadow: 0 0 12px #f5b800;
+  flex-shrink: 0;
+}
+
+.diwali-runway-indicator strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #ffd875;
+  margin-bottom: 0.15rem;
+}
+
+.diwali-runway-indicator p {
+  font-size: 0.74rem;
+  color: #d1c2ab;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.diwali-runway-indicator button {
+  background: none;
+  border: none;
+  color: #c4b5a2;
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.diwali-runway-indicator button:hover {
+  color: #fff;
+}
+
+.diwali-toast {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: rgba(34, 20, 12, 0.95);
+  border: 1px solid #d4af37;
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.3);
+  color: #fff4e2;
+  font-size: 0.84rem;
+  font-weight: 500;
+  animation: slideUpToast 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpToast {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.diwali-toast a {
+  color: #ffd875;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-left: 0.3rem;
+}
+
+.diwali-gesture-hint {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.8rem;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(209, 194, 171, 0.6);
+}
+
+.diwali-gesture-hint i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(209, 194, 171, 0.4);
+}
+
+/* 3D Toolbar */
+.diwali-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.6rem;
+  background: #150e09;
+  border-top: 1px solid rgba(217, 119, 6, 0.18);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-angle-group,
+.toolbar-turntable-group,
+.toolbar-zoom-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.toolbar-heading {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #a8967f;
+  margin-right: 0.3rem;
+}
+
+.toolbar-angle-group button,
+.toolbar-turntable-group button,
+.toolbar-zoom-group button,
+.toolbar-avatar-toggle {
+  padding: 0.36rem 0.75rem;
+  background: #23160e;
+  border: 1px solid rgba(217, 119, 6, 0.24);
+  border-radius: 6px;
+  color: #d1c2ab;
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.toolbar-angle-group button:hover,
+.toolbar-turntable-group button:hover,
+.toolbar-zoom-group button:hover,
+.toolbar-avatar-toggle:hover {
+  background: #301f14;
+  border-color: rgba(229, 169, 60, 0.5);
+  color: #fff6e8;
+}
+
+.toolbar-angle-group button.is-active,
+.toolbar-turntable-group button.is-active,
+.toolbar-zoom-group button.is-active,
+.toolbar-avatar-toggle.is-active {
+  background: rgba(217, 119, 6, 0.26);
+  border-color: #e5a93c;
+  color: #fff8ee;
+  font-weight: 600;
+}
+
+.toolbar-reset-icon {
+  padding: 0.36rem;
+}
+
+/* Right Column: Garment Specification */
+.diwali-spec-panel {
+  background: #150e09;
+  border-left: 1px solid rgba(217, 119, 6, 0.18);
+  padding: 1.4rem 1.3rem;
+  overflow-y: auto;
+}
+
+.spec-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.spec-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.18);
+  padding-bottom: 0.9rem;
+}
+
+.spec-card-header h2 {
+  font-family: var(--fm-font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.55rem;
+  color: #fff5e6;
+  margin: 0.25rem 0 0.45rem;
+  font-weight: 600;
+}
+
+.spec-region-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  background: rgba(217, 119, 6, 0.14);
+  border: 1px solid rgba(229, 169, 60, 0.28);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: #f5b800;
+}
+
+.wardrobe-save-btn {
+  padding: 0.55rem;
+  background: #20140c;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  border-radius: 50%;
+  color: #e5a93c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wardrobe-save-btn:hover {
+  background: #311e12;
+  border-color: #f5b800;
+  transform: scale(1.1);
+}
+
+.wardrobe-save-btn.is-saved {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #d4af37;
+}
+
+.spec-significance-box {
+  background: linear-gradient(135deg, rgba(38, 22, 14, 0.95) 0%, rgba(68, 24, 20, 0.6) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f5b800;
+}
+
+.spec-significance-box p {
+  font-size: 0.78rem;
+  color: #ded1be;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.spec-craft-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.craft-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #eed59f;
+}
+
+.spec-motifs-block {
+  background: #1b120c;
+  border: 1px solid rgba(217, 119, 6, 0.16);
+  border-radius: 6px;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.74rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-motifs-block strong {
+  font-size: 0.68rem;
+  color: #f5b800;
+  letter-spacing: 0.06em;
+}
+
+.spec-motifs-block p {
+  color: #c7b9a5;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.spec-drape-style {
+  font-size: 0.74rem;
+  color: #a89781;
+}
+
+.spec-drape-style strong {
+  color: #e5a93c;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f5b800;
+  margin-bottom: 0.6rem;
+}
+
+.color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.color-dot:hover:not(:disabled) {
+  transform: scale(1.15);
+}
+
+.color-dot.is-unsupported,
+.color-dot:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+  filter: grayscale(0.45);
+}
+
+.color-dot.is-selected {
+  border-color: #fff8ed;
+  box-shadow: 0 0 12px rgba(255, 230, 160, 0.5);
+}
+
+.dot-active-marker {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.active-color-name {
+  display: block;
+  font-size: 0.74rem;
+  color: #a89680;
+  margin-top: 0.4rem;
+}
+
+.active-color-name strong {
+  color: #ede2d3;
+}
+
+.fabric-select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background: #20140c;
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: 6px;
+  color: #f7eedf;
+  font-size: 0.82rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.material-note {
+  font-size: 0.73rem;
+  color: #b3a28c;
+  line-height: 1.4;
+  margin: 0.4rem 0 0;
+}
+
+.spec-fit-box {
+  background: #1b120c;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fit-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #eed59f;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+}
+
+.spec-fit-box p {
+  font-size: 0.78rem;
+  color: #d4c5b3;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.spec-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.btn-find-size {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #a73922 0%, #d97706 100%);
+  border-color: #ffe6a4;
+}
+
+.btn-save-wardrobe {
+  padding: 0.65rem 1rem;
+  background: #20140c;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  border-radius: 8px;
+  color: #ffd875;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+}
+
+.btn-save-wardrobe:hover {
+  background: #2c1a10;
+  border-color: #ffd875;
+  color: #fff6e8;
+}
+
+.btn-save-wardrobe.is-saved {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+.spec-asset-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
+  background: rgba(24, 15, 10, 0.85);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  border-radius: 6px;
+  font-size: 0.72rem;
+}
+
+.asset-status-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.asset-ledger-toggle {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 4px;
+  color: #f5b800;
+  padding: 0.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asset-ledger-list {
+  margin: 0;
+  padding: 0.55rem 0 0 1rem;
+  border-top: 1px solid rgba(217, 119, 6, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: #bfaea0;
+}
+
+.asset-ledger-list li strong {
+  color: #ffd875;
+  display: inline;
+  font-size: 0.7rem;
+}
+
+.asset-ledger-list li small {
+  display: block;
+  color: #8f7e6b;
+  font-size: 0.68rem;
+}
+
+.status-light {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5a93c;
+  margin-top: 3px;
+  box-shadow: 0 0 6px #e5a93c;
+  flex-shrink: 0;
+}
+
+.status-light.is-ready {
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.spec-asset-status strong {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #f5b800;
+  margin-bottom: 0.2rem;
+}
+
+.spec-asset-status p {
+  color: #a89781;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 360 Turntable Degree Control */
+.toolbar-degree-slider {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.65rem;
+  background: #1c110b;
+  border: 1px solid rgba(217, 119, 6, 0.24);
+  border-radius: 6px;
+  color: #d9c7b2;
+  font-size: 0.74rem;
+}
+
+.toolbar-degree-slider input[type="range"] {
+  width: 82px;
+  accent-color: #f5b800;
+  cursor: pointer;
+}
+
+.toolbar-degree-slider span {
+  min-width: 34px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: #ffd875;
+  font-weight: 600;
+}
+
+/* Viewport Craftsmanship Inspection Banner */
+.diwali-inspection-banner {
+  position: absolute;
+  top: 4.8rem;
+  left: 1.8rem;
+  z-index: 12;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  max-width: 340px;
+  padding: 0.75rem 0.95rem;
+  background: rgba(24, 14, 9, 0.94);
+  border: 1px solid rgba(245, 184, 0, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  color: #f5ead9;
+}
+
+.diwali-inspection-banner svg {
+  color: #f5b800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.diwali-inspection-banner strong {
+  display: block;
+  font-size: 0.78rem;
+  color: #ffd875;
+  margin-bottom: 0.15rem;
+}
+
+.diwali-inspection-banner p {
+  margin: 0;
+  font-size: 0.74rem;
+  color: #c7b8a3;
+  line-height: 1.4;
+}
+
+.diwali-inspection-banner button {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #b8a692;
+  cursor: pointer;
+  padding: 0.15rem;
+}
+
+/* Craftsmanship Inspection Chips in Right Panel */
+.spec-inspection-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inspection-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.inspection-chip {
+  padding: 0.35rem 0.65rem;
+  background: #23160e;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 999px;
+  color: #d9c8b4;
+  font-size: 0.73rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.inspection-chip:hover {
+  border-color: rgba(245, 184, 0, 0.55);
+  color: #fff6e8;
+}
+
+.inspection-chip.is-active {
+  background: rgba(217, 119, 6, 0.22);
+  border-color: #f5b800;
+  color: #ffd875;
+  font-weight: 600;
+}
+
+.inspection-active-note {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: #b8a692;
+}
+
+.diwali-3d-pending-note {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.26rem 0.65rem;
+  background: rgba(22, 13, 8, 0.9);
+  border: 1px solid rgba(245, 184, 0, 0.45);
+  border-radius: 999px;
+  color: #ffd875;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .diwali-stage-grid {
+    grid-template-columns: 280px 1fr 330px;
+  }
+}
+
+@media (max-width: 992px) {
+  .diwali-stage-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+
+  .diwali-canvas-column {
+    height: 60vh;
+    min-height: 440px;
+  }
+
+  .diwali-garments-panel {
+    height: auto;
+    max-height: 380px;
+  }
+
+  .diwali-spec-panel {
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .diwali-header {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .diwali-nav {
+    display: none;
+  }
+
+  .diwali-top-marquee {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .diwali-canvas-column {
+    height: 52vh;
+    min-height: 380px;
+  }
+
+  .diwali-toolbar {
+    padding: 0.6rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-angle-group,
+  .toolbar-turntable-group,
+  .toolbar-zoom-group {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .diwali-inspection-banner {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}

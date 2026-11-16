@@ -1,0 +1,498 @@
+/* ==========================================================================
+   FITMATE — GRAND IMMERSIVE 3D SHOWROOM HOMEPAGE (MIDNIGHT LUXURY)
+   ========================================================================== */
+
+.fitmate-home {
+  overflow-x: hidden;
+  color: var(--fm-color-ink, #f5f0e6);
+  background: var(--fm-color-paper, #08090c);
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgba(214, 180, 106, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 50%, rgba(214, 180, 106, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #08090c 0%, #0d0f14 100%);
+  position: relative;
+}
+
+/* ==========================================================================
+   Header Bar (Sticky Glassmorphic Top)
+   ========================================================================== */
+.home-header {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fm-space-6, 32px);
+  padding: 0 max(4.5%, calc((100% - 1440px) / 2));
+  border-bottom: 1px solid rgba(214, 180, 106, 0.18);
+  background: rgba(8, 9, 12, 0.85);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.home-header .fm-wordmark {
+  flex: 0 0 auto;
+  font-size: 22px;
+  color: #f5f0e6;
+}
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.home-nav > a:not(.fm-button),
+.home-login-link {
+  padding: 8px 0;
+  border: 0;
+  color: #a5a5aa;
+  background: transparent;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-nav > a:not(.fm-button):hover,
+.home-login-link:hover {
+  color: #d6b46a;
+}
+
+.home-login-link {
+  cursor: pointer;
+}
+
+.home-menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(214, 180, 106, 0.3);
+  border-radius: 6px;
+  color: #f5f0e6;
+  background: rgba(18, 20, 26, 0.6);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Showroom Tagline & House Promise
+   ========================================================================== */
+.home-promise {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 4%;
+  border-top: 1px solid rgba(214, 180, 106, 0.2);
+  border-bottom: 1px solid rgba(214, 180, 106, 0.2);
+  background: rgba(14, 16, 22, 0.65);
+  backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+.home-promise > span {
+  color: #d6b46a;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.home-promise > i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(214, 180, 106, 0.5);
+}
+
+.home-promise p {
+  margin: 0;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(24px, 3.2vw, 36px);
+  color: #f5f0e6;
+  font-weight: 300;
+}
+
+.home-promise em {
+  font-style: italic;
+  color: #d6b46a;
+}
+
+/* ==========================================================================
+   Section Layout Defaults
+   ========================================================================== */
+.home-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 5%;
+}
+
+.home-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+}
+
+.home-section-heading h2 {
+  margin: 12px 0 0;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #f5f0e6;
+}
+
+.home-section-heading h2 em {
+  font-style: italic;
+  color: #d6b46a;
+}
+
+.home-section-heading > p {
+  max-width: 420px;
+  margin: 0;
+  color: #a5a5aa;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   10 FASHION MULTIVERSE PORTALS SHOWCASE
+   ========================================================================== */
+.home-portals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-portal-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  background: rgba(18, 20, 26, 0.72);
+  border: 1px solid rgba(214, 180, 106, 0.2);
+  border-radius: 12px;
+  text-decoration: none;
+  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-portal-card:hover {
+  transform: translateY(-4px);
+  border-color: #d6b46a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(214, 180, 106, 0.15);
+}
+
+.home-portal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, #d6b46a), transparent);
+  opacity: 0.6;
+}
+
+.portal-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.portal-card-index {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #d6b46a;
+  font-family: monospace;
+}
+
+.portal-card-tagline {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a5a5aa;
+}
+
+.portal-card-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(214, 180, 106, 0.12);
+  border: 1px solid rgba(214, 180, 106, 0.25);
+  color: #d6b46a;
+  margin-bottom: 16px;
+}
+
+.home-portal-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: #f5f0e6;
+}
+
+.home-portal-card p {
+  margin: 0 0 20px;
+  color: #a5a5aa;
+  font-size: 11px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.portal-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d6b46a;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.home-portal-card:hover .portal-card-action {
+  transform: translateX(3px);
+  color: #fff;
+}
+
+/* ==========================================================================
+   FIT INTELLIGENCE IN 3 STEPS
+   ========================================================================== */
+.home-step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.home-step {
+  padding: 32px 28px;
+  background: rgba(18, 20, 26, 0.7);
+  border: 1px solid rgba(214, 180, 106, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  position: relative;
+}
+
+.home-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  color: #d6b46a;
+}
+
+.home-step-top span {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  font-family: monospace;
+}
+
+.home-step h3 {
+  margin: 0 0 10px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: #f5f0e6;
+}
+
+.home-step p {
+  margin: 0;
+  color: #a5a5aa;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   HAUTE COUTURE GUARANTEE & BENEFITS
+   ========================================================================== */
+.home-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-benefit-card {
+  padding: 32px 28px;
+  background: rgba(18, 20, 26, 0.7);
+  border: 1px solid rgba(214, 180, 106, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.home-benefit-card:hover {
+  transform: translateY(-3px);
+  border-color: #d6b46a;
+}
+
+.home-benefit-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(214, 180, 106, 0.12);
+  border: 1px solid rgba(214, 180, 106, 0.25);
+  color: #d6b46a;
+  margin-bottom: 20px;
+}
+
+.home-benefit-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: #f5f0e6;
+}
+
+.home-benefit-card p {
+  margin: 0;
+  color: #a5a5aa;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   CALL TO ACTION & GET STARTED
+   ========================================================================== */
+.home-get-started {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 24px;
+  margin: 40px auto 0;
+  text-align: center;
+  background: radial-gradient(ellipse at center, rgba(214, 180, 106, 0.12) 0%, rgba(8, 9, 12, 0.95) 70%);
+  border-top: 1px solid rgba(214, 180, 106, 0.25);
+  border-bottom: 1px solid rgba(214, 180, 106, 0.25);
+}
+
+.home-get-started .fm-eyebrow {
+  color: #d6b46a;
+}
+
+.home-get-started h2 {
+  margin: 12px 0 14px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(42px, 5.5vw, 68px);
+  font-weight: 300;
+  line-height: 1;
+  color: #f5f0e6;
+}
+
+.home-get-started h2 em {
+  font-style: italic;
+  color: #d6b46a;
+}
+
+.home-get-started p {
+  max-width: 460px;
+  margin: 0 0 28px;
+  color: #a5a5aa;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   FOOTER (Midnight Luxury)
+   ========================================================================== */
+.home-footer {
+  padding: 60px max(5%, calc((100% - 1440px) / 2)) 28px;
+  background: #06070a;
+  border-top: 1px solid rgba(214, 180, 106, 0.15);
+  color: #f5f0e6;
+}
+
+.home-footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(214, 180, 106, 0.12);
+  flex-wrap: wrap;
+}
+
+.home-footer-brand p {
+  margin: 12px 0 0;
+  color: #a5a5aa;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.home-footer-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.home-footer-nav a {
+  color: #a5a5aa;
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-footer-nav a:hover {
+  color: #d6b46a;
+}
+
+.home-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  color: #71717a;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .home-portals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    min-height: 64px;
+    padding-inline: 18px;
+  }
+  .home-nav {
+    display: none;
+  }
+  .home-menu-toggle {
+    display: grid;
+  }
+  .home-promise {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 18px;
+  }
+  .home-section {
+    padding: 60px 18px;
+  }
+  .home-portals-grid,
+  .home-step-grid,
+  .home-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+}
