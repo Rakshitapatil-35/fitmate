@@ -1,0 +1,492 @@
+/* Digital Fit Passport Luxury Holographic Styling */
+.fp-page-root {
+  min-height: 100vh;
+  background-color: var(--fm-bg-canvas, #0c0a09);
+  color: var(--fm-text-primary, #fff9f0);
+  font-family: var(--fm-font-body, system-ui, sans-serif);
+  padding-bottom: 80px;
+}
+
+.fp-header {
+  border-bottom: 1px solid rgba(223, 193, 123, 0.15);
+  background: rgba(13, 11, 9, 0.85);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.fp-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fp-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fp-divider {
+  color: rgba(223, 193, 123, 0.4);
+  font-weight: 300;
+}
+
+.fp-section-title {
+  font-family: var(--fm-font-display, Georgia, serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+.fp-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fp-nav-item {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 249, 240, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fp-nav-item:hover,
+.fp-nav-item.highlight {
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+/* Main Content */
+.fp-main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.fp-intro-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fp-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--fm-accent-gold, #dfc17b);
+  margin-bottom: 8px;
+}
+
+.fp-heading {
+  margin: 0 0 12px;
+  font-family: var(--fm-font-display, Georgia, serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #fff9f0;
+}
+
+.fp-desc {
+  max-width: 620px;
+  font-size: 0.95rem;
+  color: rgba(255, 249, 240, 0.7);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.fp-unit-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fp-unit-label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 249, 240, 0.6);
+}
+
+.fp-toggle-pill {
+  display: flex;
+  background: rgba(25, 21, 17, 0.85);
+  border: 1px solid rgba(223, 193, 123, 0.25);
+  border-radius: 24px;
+  padding: 3px;
+}
+
+.fp-pill-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 249, 240, 0.7);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fp-pill-btn.active {
+  background: linear-gradient(135deg, #dfc17b, #c6a256);
+  color: #0d0b09;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(223, 193, 123, 0.3);
+}
+
+/* Passport Card */
+.fp-card-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.fp-passport-card {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background: radial-gradient(circle at 80% 20%, #2a2219 0%, #15110d 65%, #0d0b09 100%);
+  border: 1px solid rgba(223, 193, 123, 0.45);
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(223, 193, 123, 0.12);
+  overflow: hidden;
+}
+
+.fp-passport-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #dfc17b, #fff9f0, #dfc17b, #a68434);
+}
+
+/* Card Topbar */
+.fp-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(223, 193, 123, 0.18);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.fp-card-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fp-microchip-lines {
+  width: 38px;
+  height: 28px;
+  background: linear-gradient(135deg, #dfc17b, #a48238);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.fp-microchip-lines::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  right: 4px;
+  bottom: 6px;
+  border: 1px solid rgba(13, 11, 9, 0.45);
+}
+
+.fp-chip-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--fm-accent-gold, #dfc17b);
+  font-weight: 600;
+}
+
+.fp-passport-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(223, 193, 123, 0.12);
+  border: 1px solid rgba(223, 193, 123, 0.3);
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+/* ID Row */
+.fp-card-id-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.fp-id-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fp-id-meta.right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.fp-meta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 240, 0.5);
+}
+
+.fp-meta-val {
+  font-family: monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #fff9f0;
+}
+
+.fp-archetype-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(223, 193, 123, 0.15);
+  border: 1px solid rgba(223, 193, 123, 0.35);
+  color: var(--fm-accent-gold, #dfc17b);
+  font-family: var(--fm-font-display, Georgia, serif);
+  font-size: 0.95rem;
+}
+
+/* Measurements Grid */
+.fp-measurements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: rgba(18, 14, 11, 0.6);
+  border: 1px solid rgba(223, 193, 123, 0.15);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+  .fp-measurements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fp-meas-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fp-meas-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 240, 0.5);
+}
+
+.fp-meas-val {
+  font-family: var(--fm-font-display, Georgia, serif);
+  font-size: 1.25rem;
+  color: #fff9f0;
+}
+
+.fp-meas-val.highlight {
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+/* Card Bottom */
+.fp-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-top: 1px solid rgba(223, 193, 123, 0.15);
+  padding-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .fp-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.fp-qr-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(13, 11, 9, 0.7);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(223, 193, 123, 0.2);
+}
+
+.fp-qr-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fp-qr-sub {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+.fp-qr-sub-id {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 249, 240, 0.45);
+}
+
+.fp-archetype-info {
+  flex: 1;
+}
+
+.fp-info-heading {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fm-accent-gold, #dfc17b);
+  margin-bottom: 4px;
+}
+
+.fp-info-desc {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  color: rgba(255, 249, 240, 0.65);
+  line-height: 1.45;
+}
+
+.fp-watermark {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: rgba(223, 193, 123, 0.35);
+}
+
+/* Actions Card */
+.fp-actions-card {
+  background: rgba(22, 18, 14, 0.75);
+  border: 1px solid rgba(223, 193, 123, 0.18);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.fp-actions-btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .fp-actions-btns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.fp-btn-primary {
+  background: linear-gradient(135deg, #dfc17b, #c6a256);
+  color: #0d0b09;
+  box-shadow: 0 6px 20px rgba(223, 193, 123, 0.25);
+}
+
+.fp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(223, 193, 123, 0.38);
+}
+
+.fp-btn-secondary {
+  background: rgba(30, 24, 18, 0.8);
+  border: 1px solid rgba(223, 193, 123, 0.25);
+  color: #fff9f0;
+}
+
+.fp-btn-secondary:hover {
+  border-color: var(--fm-accent-gold, #dfc17b);
+  background: rgba(45, 36, 26, 0.9);
+}
+
+/* Security Banner */
+.fp-security-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(18, 15, 12, 0.6);
+  border: 1px solid rgba(223, 193, 123, 0.14);
+  border-radius: 14px;
+}
+
+.fp-security-text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 249, 240, 0.6);
+  line-height: 1.5;
+}
+
+.fp-security-text strong {
+  color: var(--fm-accent-gold, #dfc17b);
+}
+
+@media print {
+  .fp-header,
+  .fp-actions-card,
+  .fp-unit-toggle-row,
+  .fp-security-banner {
+    display: none !important;
+  }
+  .fp-page-root {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .fp-passport-card {
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+  .fp-meas-val, .fp-meta-val {
+    color: #000000 !important;
+  }
+}

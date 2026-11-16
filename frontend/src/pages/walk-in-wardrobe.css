@@ -1,0 +1,1041 @@
+.walk-in-wardrobe-page {
+  position: relative;
+  overflow-x: hidden;
+  background: #1b1713;
+  color: #f7f2ea;
+  min-height: 100vh;
+}
+
+/* 1. Haute-Couture Header */
+.walkin-header {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0 max(4%, calc((100% - 1520px) / 2));
+  color: #f6f0e5;
+  background: linear-gradient(180deg, rgba(17, 15, 12, 0.92) 0%, rgba(17, 15, 12, 0.4) 65%, transparent 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.walkin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.walkin-crest-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #e5c158;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+
+/* Zone Switcher in Header */
+.walkin-camera-switcher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  background: rgba(26, 22, 18, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 999px;
+}
+
+.zone-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(245, 237, 224, 0.75);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zone-pill-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.zone-pill-btn.is-active {
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #211c16;
+  background: #d4af37;
+  font-weight: 600;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+.walkin-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.walkin-nav a {
+  color: rgba(249, 243, 232, 0.75);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.walkin-nav a:hover {
+  color: #e5c158;
+}
+
+.walkin-nav a.nav-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.12);
+  color: #f7e1a0;
+}
+
+/* 2. Full-Viewport 3D Stage */
+.walkin-stage {
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  position: relative;
+  overflow: hidden;
+  background: #1b1713;
+}
+
+.walkin-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.walkin-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(15, 12, 9, 0.65) 100%),
+              linear-gradient(180deg, rgba(20, 17, 13, 0.5) 0%, transparent 20%, transparent 80%, rgba(20, 17, 13, 0.85) 100%);
+}
+
+/* 3. Empty State Card inside 3D Scene */
+.wardrobe-empty-glass-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: min(540px, 90vw);
+  padding: 34px 30px;
+  background: rgba(27, 23, 18, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  backdrop-filter: blur(24px);
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.empty-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #d4af37;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+
+.wardrobe-empty-glass-card h2 {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: #fff9ee;
+  margin: 0 0 12px;
+}
+
+.wardrobe-empty-glass-card p {
+  color: #d1c6b5;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.btn-restore-curated {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #d4af37, #b08d24);
+  color: #1b160e;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-restore-curated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.45);
+}
+
+.empty-world-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.empty-world-links a {
+  color: rgba(245, 235, 220, 0.7);
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.empty-world-links a:hover {
+  color: #e5c158;
+}
+
+/* 4. Floating 3D Garment Inspector HUD */
+.walkin-garment-inspector-panel {
+  position: absolute;
+  top: 92px;
+  right: max(3.5%, calc((100% - 1520px) / 2));
+  z-index: 6;
+  width: min(350px, 92vw);
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  padding: 22px;
+  background: rgba(25, 21, 16, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.inspector-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-kicker {
+  color: #d4af37;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.occasion-tag {
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  color: #e2d7c5;
+  font-size: 9px;
+}
+
+.btn-close-inspector {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.btn-close-inspector:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.inspector-garment-title {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff9ee;
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+.inspector-brand-line {
+  color: #d4af37;
+  font-size: 11px;
+  margin: 0 0 14px;
+}
+
+.asset-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.asset-status-pill.is-ready {
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34d399;
+}
+
+.asset-status-pill.is-ready i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+
+.asset-status-pill.is-pending {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #dfc17b;
+}
+
+.asset-status-pill.is-pending i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #dfc17b;
+  box-shadow: 0 0 8px #dfc17b;
+}
+
+.asset-honesty-note {
+  font-size: 9px;
+  color: #a89e8e;
+  line-height: 1.45;
+  margin: 7px 0 14px;
+  padding-left: 2px;
+}
+
+/* 3D Inspection Controls */
+.inspector-controls-box {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.control-label {
+  display: block;
+  font-size: 8px;
+  color: #b5a995;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.view-angle-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.angle-btn {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ded6c9;
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.angle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.angle-btn.is-active {
+  background: #d4af37;
+  color: #1b160e;
+  border-color: #d4af37;
+  font-weight: 600;
+}
+
+.inspector-specs-grid {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 11px;
+}
+
+.spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.spec-name {
+  color: #a39989;
+}
+
+.color-swatch-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.garment-curator-note {
+  font-size: 10px;
+  color: #beb29e;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 6px 0 0;
+}
+
+/* Actions Grid */
+.inspector-actions-grid {
+  display: grid;
+  gap: 7px;
+}
+
+.btn-try-on-fitting {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px;
+  background: linear-gradient(135deg, #d4af37, #b39127);
+  color: #1b160e;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-try-on-fitting:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+.btn-check-recommendation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f1e7d4;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-check-recommendation:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #fff;
+}
+
+.btn-remove-from-wardrobe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #f87171;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-remove-from-wardrobe:hover {
+  background: rgba(220, 38, 38, 0.15);
+  border-color: #ef4444;
+}
+
+/* 5. Floating Bottom Dock HUD */
+.walkin-dock-hud {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: min(1360px, 94vw);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dock-collections-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 5px 8px;
+  background: rgba(22, 19, 15, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow-x: auto;
+}
+
+.collection-tab-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(245, 237, 224, 0.75);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.collection-tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.collection-tab-btn.is-active {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #f5d98b;
+  font-weight: 500;
+}
+
+.btn-toggle-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  color: #eeddbb;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.btn-toggle-filters.has-active {
+  background: #d4af37;
+  color: #1b160e;
+  border-color: #d4af37;
+  font-weight: 600;
+}
+
+.dock-rack-strip {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(22, 19, 15, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 10px;
+  backdrop-filter: blur(18px);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) transparent;
+}
+
+.rack-item-card {
+  flex: 0 0 auto;
+  min-width: 170px;
+  max-width: 220px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  color: #eee4d4;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rack-item-card:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.rack-item-card.is-selected {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: #d4af37;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+}
+
+.rack-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #d4af37;
+}
+
+.rack-card-color-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rack-card-name {
+  font-size: 11px;
+  color: #fff8ee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.rack-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8px;
+  color: #9e9383;
+}
+
+.rack-card-inspect-hint {
+  color: #d4af37;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.dock-rack-empty-message {
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  color: #b0a491;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.dock-rack-empty-message button {
+  padding: 4px 10px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #edd5a6;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+/* 6. Floating Filters Modal */
+.wardrobe-filters-drawer {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  width: min(640px, 94vw);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding: 22px;
+  background: rgba(22, 18, 14, 0.94);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.drawer-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d4af37;
+}
+
+.drawer-title-group h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff9ee;
+}
+
+.btn-close-drawer {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.drawer-body {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 9px;
+  color: #b5a995;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.filter-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-chip {
+  padding: 5px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d1c7b8;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.filter-chip.is-active {
+  background: #d4af37;
+  color: #1b160e;
+  border-color: #d4af37;
+  font-weight: 600;
+}
+
+.color-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.color-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d1c7b8;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.color-filter-btn.is-active {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.2);
+  color: #f7e3ad;
+  font-weight: 600;
+}
+
+.color-swatch-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.all-colors-icon {
+  font-size: 8px;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.btn-drawer-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #a89e8e;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-drawer-reset:hover {
+  color: #fff;
+}
+
+.btn-drawer-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: #d4af37;
+  color: #1b160e;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 7. Summary & Management Footer */
+.wardrobe-main {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+.wardrobe-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.summary-card {
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-card svg {
+  color: #d4af37;
+}
+
+.summary-card strong {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff9ee;
+}
+
+.summary-card span {
+  font-size: 10px;
+  color: #a89e8e;
+}
+
+.wardrobe-management-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.management-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.management-card h3 {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff9ee;
+  margin: 8px 0 12px;
+}
+
+.management-card p {
+  font-size: 12px;
+  color: #b5a995;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.measurements-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  margin-bottom: 18px;
+}
+
+.quick-measurement-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 11px;
+}
+
+.quick-measurement-item span {
+  color: #a39989;
+  text-transform: capitalize;
+}
+
+.quick-measurement-item strong {
+  color: #f7e7c4;
+}
+
+.management-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-edit-measurements {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
+  color: #eeddbb;
+  font-size: 11px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-edit-measurements:hover {
+  background: #d4af37;
+  color: #1b160e;
+}
+
+.btn-mgmt-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #eeddbb;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-mgmt-action:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-mgmt-action.btn-danger {
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #f87171;
+}
+
+.btn-mgmt-action.btn-danger:hover {
+  background: rgba(220, 38, 38, 0.15);
+}
+
+/* Loading Spinner */
+.loading-gold-spinner {
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Rules */
+@media (max-width: 960px) {
+  .walkin-garment-inspector-panel {
+    top: auto;
+    bottom: 120px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    max-height: 280px;
+  }
+  .wardrobe-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wardrobe-management-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .walkin-camera-switcher {
+    display: none;
+  }
+  .walkin-dock-hud {
+    bottom: 16px;
+  }
+  .dock-collections-bar {
+    justify-content: flex-start;
+  }
+}

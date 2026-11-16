@@ -1,0 +1,543 @@
+/* ==========================================================================
+   FITMATE GRAND IMMERSIVE 3D SHOWROOM — MIDNIGHT LUXURY HUD
+   ========================================================================== */
+
+/* Main Full-Viewport Showroom Hero */
+.grand-showroom.home-hero {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  min-height: 720px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: #f5f0e6;
+  background: #08090c;
+  isolation: isolate;
+}
+
+.grand-showroom-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.grand-showroom-canvas .fm-scene-frame {
+  width: 100%;
+  height: 100%;
+}
+
+/* Subtle Vignette & Ambient Radial Lighting */
+.grand-showroom-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at center, transparent 45%, rgba(8, 9, 12, 0.72) 100%),
+    linear-gradient(180deg, rgba(8, 9, 12, 0.7) 0%, transparent 16%, transparent 80%, rgba(8, 9, 12, 0.85) 100%);
+}
+
+/* ==========================================================================
+   FIRST IMPRESSION: Cinematic Logo Reveal & Welcome Overlay
+   ========================================================================== */
+
+.grand-showroom-reveal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  background: radial-gradient(ellipse at center, rgba(14, 16, 22, 0.94) 0%, rgba(8, 9, 12, 0.98) 80%);
+  backdrop-filter: blur(24px);
+  animation: revealFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealFadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reveal-crest-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(214, 180, 106, 0.45);
+  background: rgba(18, 20, 26, 0.9);
+  box-shadow: 0 0 32px rgba(214, 180, 106, 0.25);
+}
+
+.reveal-monogram {
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 26px;
+  font-weight: 300;
+  color: #d6b46a;
+  letter-spacing: 0.05em;
+}
+
+.reveal-halo {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(214, 180, 106, 0.35);
+  animation: rotateHalo 24s linear infinite;
+}
+
+@keyframes rotateHalo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.reveal-kicker {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #d6b46a;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.reveal-title {
+  margin: 0 0 16px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #f5f0e6;
+  max-width: 720px;
+}
+
+.reveal-title em {
+  font-style: italic;
+  color: #d6b46a;
+}
+
+.reveal-description {
+  max-width: 540px;
+  margin: 0 auto 32px;
+  color: #a5a5aa;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.reveal-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-enter-showroom {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #d6b46a 0%, #a98a4d 100%);
+  border: 1px solid #d6b46a;
+  border-radius: 999px;
+  color: #08090c;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 28px rgba(214, 180, 106, 0.3);
+}
+
+.btn-enter-showroom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(214, 180, 106, 0.45);
+}
+
+.btn-skip-intro {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  background: rgba(18, 20, 26, 0.75);
+  border: 1px solid rgba(214, 180, 106, 0.3);
+  border-radius: 999px;
+  color: #f5f0e6;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-skip-intro:hover {
+  border-color: #d6b46a;
+  color: #d6b46a;
+  background: rgba(214, 180, 106, 0.12);
+}
+
+/* ==========================================================================
+   SHOWROOM HUD OVERLAY (Active During Roam)
+   ========================================================================== */
+
+/* Top Center Welcome & Beacon */
+.grand-showroom-welcome {
+  position: absolute;
+  top: 96px;
+  left: max(5%, calc((100% - 1440px) / 2));
+  z-index: 10;
+  max-width: 480px;
+  pointer-events: none;
+}
+
+.welcome-beacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(18, 20, 26, 0.85);
+  border: 1px solid rgba(214, 180, 106, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  margin-bottom: 12px;
+}
+
+.welcome-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d6b46a;
+  box-shadow: 0 0 8px rgba(214, 180, 106, 0.8);
+}
+
+.welcome-beacon span {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #d6b46a;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.grand-showroom-welcome h1 {
+  margin: 0 0 10px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: clamp(36px, 4.2vw, 62px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: #f5f0e6;
+}
+
+.grand-showroom-welcome h1 em {
+  font-style: italic;
+  color: #d6b46a;
+}
+
+.grand-showroom-welcome > p {
+  margin: 0;
+  color: #a5a5aa;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* Active Portal Card (Bottom-Left) */
+.showroom-active-portal-card {
+  position: absolute;
+  bottom: 32px;
+  left: max(5%, calc((100% - 1440px) / 2));
+  z-index: 10;
+  width: min(380px, calc(100% - 48px));
+  padding: 18px 22px;
+  background: rgba(18, 20, 26, 0.88);
+  border: 1px solid rgba(214, 180, 106, 0.32);
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.active-portal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.active-portal-index {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: #d6b46a;
+  font-weight: 600;
+}
+
+.active-portal-tag {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: #a5a5aa;
+  text-transform: uppercase;
+}
+
+.active-portal-title {
+  margin: 0 0 4px;
+  font-family: var(--fm-font-serif, Georgia, serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: #f5f0e6;
+}
+
+.active-portal-desc {
+  margin: 0 0 14px;
+  font-size: 10px;
+  color: #a5a5aa;
+  line-height: 1.5;
+}
+
+.active-portal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-launch-portal {
+  flex: 1;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, #d6b46a 0%, #a98a4d 100%);
+  border: 1px solid #d6b46a;
+  border-radius: 8px;
+  color: #08090c;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-launch-portal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(214, 180, 106, 0.35);
+}
+
+.btn-stylist-concierge {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  background: rgba(214, 180, 106, 0.12);
+  border: 1px solid rgba(214, 180, 106, 0.3);
+  border-radius: 8px;
+  color: #d6b46a;
+  font-size: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-stylist-concierge:hover {
+  background: rgba(214, 180, 106, 0.25);
+  color: #fff;
+}
+
+/* 10-Portal Interactive Directory Drawer (Bottom-Right) */
+.grand-showroom-departments {
+  position: absolute;
+  right: max(5%, calc((100% - 1440px) / 2));
+  bottom: 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 340px;
+  padding: 16px;
+  border: 1px solid rgba(214, 180, 106, 0.25);
+  border-radius: 14px;
+  background: rgba(18, 20, 26, 0.88);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.departments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(214, 180, 106, 0.15);
+}
+
+.departments-header span {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #d6b46a;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.departments-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  max-height: 210px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.departments-list::-webkit-scrollbar {
+  width: 3px;
+}
+.departments-list::-webkit-scrollbar-thumb {
+  background: rgba(214, 180, 106, 0.3);
+  border-radius: 3px;
+}
+
+.showroom-dept-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: rgba(10, 12, 16, 0.6);
+  border: 1px solid rgba(214, 180, 106, 0.12);
+  border-radius: 6px;
+  color: #a5a5aa;
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.showroom-dept-btn:hover {
+  border-color: rgba(214, 180, 106, 0.35);
+  color: #f5f0e6;
+}
+
+.showroom-dept-btn.is-active {
+  border-color: #d6b46a;
+  background: rgba(214, 180, 106, 0.16);
+  color: #d6b46a;
+  font-weight: 500;
+}
+
+.dept-index {
+  font-size: 8px;
+  color: #d6b46a;
+  font-family: monospace;
+}
+
+/* Roam Navigation & View Modes (Top-Right) */
+.showroom-view-modes {
+  position: absolute;
+  top: 96px;
+  right: max(5%, calc((100% - 1440px) / 2));
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(18, 20, 26, 0.85);
+  border: 1px solid rgba(214, 180, 106, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+}
+
+.showroom-view-modes button {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: #a5a5aa;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.showroom-view-modes button:hover {
+  color: #f5f0e6;
+}
+
+.showroom-view-modes button.is-active {
+  background: rgba(214, 180, 106, 0.25);
+  color: #d6b46a;
+  font-weight: 600;
+}
+
+/* Floor Navigation Hint */
+.showroom-orbit-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a5a5aa;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.hint-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d6b46a;
+  box-shadow: 0 0 6px rgba(214, 180, 106, 0.8);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .grand-showroom-welcome {
+    top: 84px;
+    max-width: 420px;
+  }
+  .grand-showroom-departments {
+    bottom: 24px;
+    max-width: 300px;
+  }
+  .showroom-active-portal-card {
+    bottom: 24px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grand-showroom-welcome {
+    top: 76px;
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+  .grand-showroom-welcome h1 {
+    font-size: 32px;
+  }
+  .showroom-view-modes {
+    display: none;
+  }
+  .grand-showroom-departments {
+    display: none;
+  }
+  .showroom-active-portal-card {
+    left: 16px;
+    right: 16px;
+    bottom: 20px;
+    width: auto;
+  }
+}
